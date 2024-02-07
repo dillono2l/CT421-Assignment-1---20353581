@@ -61,27 +61,19 @@ public class TargetString{
 
 
     private static void onePointCrossover(ArrayList<String> stringList, int topN) {
-        // Evaluate fitness for each string
 
-
-        // Sort stringList based on fitness values
         ArrayList<String> sortedStrings = new ArrayList<>(stringList);
         Collections.sort(sortedStrings, (s1, s2) -> Double.compare(fitnessLog.get(stringList.indexOf(s2)), fitnessLog.get(stringList.indexOf(s1))));
 
-        // Perform crossover on top n strings
         Random random = new Random();
         for (int i = 0; i < topN; i += 2) {
-            // Ensure there are at least two strings left for crossover
             if (i + 1 < topN) {
-                // Select a random crossover point
                 int crossoverPoint = random.nextInt(sortedStrings.get(i).length());
-                // Perform one-point crossover
                 String firstPart = sortedStrings.get(i).substring(0, crossoverPoint) +
                         sortedStrings.get(i + 1).substring(crossoverPoint);
                 String secondPart = sortedStrings.get(i + 1).substring(0, crossoverPoint) +
                         sortedStrings.get(i).substring(crossoverPoint);
 
-                // Update the strings in the original list after crossover
                 stringList.add(firstPart);
                 stringList.add(secondPart);
             }
@@ -95,12 +87,11 @@ public class TargetString{
     private static void mutation(ArrayList<String> stringList) {
         int numberOfStrings = stringList.size();
         Random random = new Random();
-        double mutationRate = 0.01; // Adjust mutation rate as needed
+        double mutationRate = 0.01; // Adjust mutation rate
 
         for (int i = 0; i < numberOfStrings; i++) {
             StringBuilder mutatedString = new StringBuilder(stringList.get(i));
 
-            // Iterate through each bit and perform mutation with the specified rate
             for (int j = 0; j < mutatedString.length(); j++) {
                 if (random.nextDouble() < mutationRate) {
                     mutatedString.setCharAt(j, (char) ('1' - mutatedString.charAt(j) + '0'));
