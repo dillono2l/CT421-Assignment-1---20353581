@@ -10,7 +10,7 @@ public class OneMax{
         int numberOfStrings = 16;
         ArrayList<String> stringList = initializeStrings(numberOfStrings, 30);
 
-        System.out.println("Original Strings:");
+        //System.out.println("Original Strings:");
        // printStrings(stringList);
         evaluateFitness(stringList);
 
@@ -22,7 +22,7 @@ public class OneMax{
             System.out.println("Generation " +gen+ ": "  +fitnessLog);
         }
 
-        System.out.println("\nFinal Population:");
+        //System.out.println("\nFinal Population:");
         //printStrings(stringList);
         System.out.println("average fittness: " + avgerageFitnessLogs);
 

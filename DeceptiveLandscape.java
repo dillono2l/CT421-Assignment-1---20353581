@@ -6,13 +6,14 @@ import java.util.Random;
 public class DeceptiveLandscape{
     public static ArrayList<Integer> avgerageFitnessLogs = new ArrayList<>();
     public static ArrayList<Integer> fitnessLog = new ArrayList<>();
+
     public static void main(String[] args) {
         int numberOfStrings = 16;
         ArrayList<String> stringList = initializeStrings(numberOfStrings, 30);
         stringList.set(2, "000000000000000000000000000000");
         //stringList.set(3, "000000000000000000000000000000");
-        System.out.println("Original Strings:");
-        printStrings(stringList);
+        //System.out.println("Original Strings:");
+        //printStrings(stringList);
         evaluateFitness(stringList);
 
         for (int gen= 1; gen<= 50; gen++) {// gen = num generations
@@ -23,7 +24,7 @@ public class DeceptiveLandscape{
             System.out.println("Generation " +gen+ ": "  +fitnessLog);
         }
 
-        System.out.println("\nFinal Population:");
+        //System.out.println("\nFinal Population:");
         //printStrings(stringList);
         System.out.println("average fittness: " + avgerageFitnessLogs);
 
@@ -127,6 +128,7 @@ public class DeceptiveLandscape{
                     fitness++;
                 }
             }
+            //new condition to reward strings of all zeros
             if (fitness == 0 ) fitness = 2*stringList.get(i).length();
             fitnessLog.add(fitness);
             total += fitness;

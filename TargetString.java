@@ -11,8 +11,8 @@ public class TargetString{
         int numberOfStrings = 16;
         ArrayList<String> stringList = initializeStrings(numberOfStrings, 30);
 
-        System.out.println("Original Strings:");
-        printStrings(stringList);
+        //System.out.println("Original Strings:");
+        //printStrings(stringList);
         evaluateFitness(stringList);
 
         for (int gen= 1; gen<= 50; gen++) {// gen = num generations
@@ -20,11 +20,11 @@ public class TargetString{
             fitnessLog.clear();
             mutation(stringList);
             evaluateFitness(stringList);
-            //System.out.println("Generation " +gen+ ": "  +fitnessLog);
+            System.out.println("Generation " +gen+ ": "  +fitnessLog);
         }
 
-        System.out.println("\nFinal Population:");
-        printStrings(stringList);
+        //System.out.println("\nFinal Population:");
+        //printStrings(stringList);
         System.out.println("average fittness: " + avgerageFitnessLogs);
 
 
