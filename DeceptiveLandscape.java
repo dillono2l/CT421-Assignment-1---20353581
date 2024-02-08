@@ -112,7 +112,7 @@ public class DeceptiveLandscape{
                     fitness++;
                 }
             }
-            //new condition to reward strings of all zeros
+                //new condition to reward strings of all zeros
             if (fitness == 0 ) fitness = 2*stringList.get(i).length();
             fitnessLog.add(fitness);
             total += fitness;
